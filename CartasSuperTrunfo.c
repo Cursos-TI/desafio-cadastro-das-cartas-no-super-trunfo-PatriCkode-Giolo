@@ -4,7 +4,7 @@
 // Tema 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
 // Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
+
 
 int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
@@ -92,6 +92,18 @@ int main() {
     
     printf("Insira o numero total de pontos turísticos: ");
     scanf("%i", &pontoTuristico1);
+    
+
+    //-------------------------------novos atributos para carta.
+    float pibPercapt0, pibPercapt1;
+    float densPopul0, densPopul1;
+    
+    densPopul0 = populacao0 / areaCidade0;
+    densPopul1 = populacao1 / areaCidade1;
+
+    pibPercapt0 = pibCidade0 / populacao0;
+    pibPercapt1 = pibCidade1 / populacao1;
+
     puts("");//----PULA LINHA
     
     //--------------------------------------------------------exibindo resultado carta 1.
@@ -117,9 +129,14 @@ int main() {
         "PIB: R$%.2f Bilhões\n", pibCidade0
     );    
     printf(
-        "Número de Pontos Turísticos: %i\n\n", pontoTuristico0
+        "Número de Pontos Turísticos: %i\n", pontoTuristico0
     );
-   //--------------pula uma linha
+    printf(
+        "Densidade Populacional: %.2f hab/km²\n", densPopul0
+    );
+    printf(
+        "PIB per capita: %.2f reais\n\n", pibPercapt0
+    );
 
     //--------------------------------------------------------exibindo resultando carta 2
     printf(
@@ -144,10 +161,17 @@ int main() {
         "PIB: R$%.2f Bilhões\n", pibCidade1
     );    
     printf(
-        "Número de Pontos Turísticos: %i\n\n", pontoTuristico1
+        "Número de Pontos Turísticos: %i\n", pontoTuristico1
     );
-    
-    printf("Cartas cadastradas com Sucesso!");
+    printf(
+        "Densidade Populacional: %.2f hab/km²\n", densPopul1
+    );
+    printf(
+        "PIB per capita: %.2f reais\n\n", pibPercapt1
+    );
+    printf(
+        "Cartas cadastradas com Sucesso!\n\n"
+    );
 
     return 0;
 }
