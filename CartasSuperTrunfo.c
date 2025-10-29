@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+
+
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
+
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
 // Siga os comentários para implementar cada parte do desafio.
 
@@ -20,6 +22,7 @@ int main() {
     
     
     ///----------------------------------------------Declarando variáveis das duas cartas.
+    int opcaoCarta1, opcaoCarta2;
     //--------------------------------carta 1
     char estado0, codigoCarta0[4], nomeCidade0[51];     
     unsigned long int populacao0;
@@ -161,39 +164,110 @@ int main() {
     float superPoder0 = populacao0 + areaCidade0 + pibCidade0 + pontoTuristico0 + pibPercapt0 + inverso_densidade0;   
     float superPoder1 = populacao1 + areaCidade1 + pibCidade1 + pontoTuristico1 + pibPercapt1 + inverso_densidade1; 
 
-    printf("HORA DO DUELO!\n\n");
+    printf("### HORA DO DUELO! ###\n\n");
     
+    //apresentação das cartas cadastradas
     printf("Carta 1 - Estado: %c | Código: %s | Cidade: %s\n", estado0, codigoCarta0, nomeCidade0);
     printf("Carta 2 - Estado: %c | Código: %s | Cidade: %s\n\n", estado1, codigoCarta1, nomeCidade1);
     
-    //printf("Vamos ver o vencedor de cada categoria:\n\n");
-    printf("Vamos ver o vencedor!\n\n");
-    //printf("População: Carta (%ld)\n", populacao0 > populacao1);
-    //printf("Area: Carta (%d)\n", areaCidade0 > areaCidade1);
-    //printf("PIB: Carta (%d)\n", pibCidade0 > pibCidade1);
-    //printf("Pontos Turísticos: Carta (%d)\n",pontoTuristico0 > pontoTuristico1);
-    //printf("Densidade Populacional: Carta (%d)\n", inverso_densidade0 > inverso_densidade1);
-    //printf("PIB per Capita: Carta (%d)\n", pibPercapt0 > pibPercapt1);
-    //printf("Super Poder: Carta(%d)\n\n",superPoder0 > superPoder1);
+    printf("Escolha o atributo que desafiará o atributo inimigo.\n");
 
-    ////--------------------------------Tema 3 - estruturas de decisão. -(Nível novato)-
-    ///------Comparando atributos e definindo vencendor
-    //-----apresentando cartas e seus atributos a serem comparados.
-    printf("Carta 1 - %s: %ld\n", nomeCidade0, populacao0);
-    printf("Carta 2 - %s: %ld\n", nomeCidade1, populacao1);
+    printf("1 - População\n2 - Área\n3 - PIB\n4 - Número de pontos turísticos\n5 - Densidade demográfica(vence aquele com menor valor)\n\n");
     
-    //---estrutura de decisão comparando atributo para ver quem é o vencendor.
-    if (areaCidade0 > areaCidade1) {
-        printf("Carta %s venceu!\n\n", codigoCarta0);
-    } else{
-        printf("Carta %s venceu!\n\n", codigoCarta1);
-    } 
+    //entrada de dados para escolha no menu
+    printf("Escolha: ");
+    scanf("%d", &opcaoCarta1);
+    puts(""); //pula linha sem precisar usar '\n'
+    opcaoCarta2 = opcaoCarta1; //recebe o mesmo valor de entrada da primeira variável para comparar o mesmo atributo la na frente.
+
+    //MENU   
+    switch (opcaoCarta1)
+    {
+    case 1:
+        printf("Atributo 'População' selecionado para essa partida.\n\n");
+        break;
+
+    case 2:
+        printf("Atributo 'Área' selecionado para essa partida.\n\n");
+        break;
+
+    case 3:
+        printf("Atributo 'PIB' selecionado para essa partida.\n\n");
+        break;
+
+    case 4:
+        printf("Atributo 'Número de pontos turísticos' selecionado para essa partida.\n\n");
+        break;
     
+    case 5:
+        printf("Atributo 'Densidade demográfica' selecionado para essa partida.\n\n");
+        break;
     
-    
-    
-    
-    
+    default:
+        printf("### Atributo selecionado não existe! ###\n");
+        break;
+    }
+//Estrutura de decisão para fase de comparação de atributo e exibição do vencedor.
+    if ((opcaoCarta1 = 1)&&(opcaoCarta2 = 1)){
+       
+        if(populacao0 > populacao1){
+            printf("Estado: %s venceu!", nomeCidade0);
+        }
+        else if (populacao0 < populacao1){
+            printf("Estado: %s venceu!", nomeCidade1);
+        }
+        else{
+            printf("Empate!");
+        }
+        
+    }else if ((opcaoCarta1 = 2)&&(opcaoCarta2 = 2)){
+        
+        if(areaCidade0 > areaCidade1){
+            printf("Estado: %s venceu!", nomeCidade0);
+        }
+        else if (areaCidade0 < areaCidade1){
+            printf("Estado: %s venceu!", nomeCidade1);
+        }
+        else{
+            printf("Empate!");
+        }
+        
+    }else if ((opcaoCarta1 = 3)&&(opcaoCarta2 = 3)){
+        
+        if( pibCidade0 > pibCidade1){
+            printf("Estado: %s venceu!", nomeCidade0);
+        }
+        else if (pibCidade0 < pibCidade1){
+            printf("Estado: %s venceu!", nomeCidade1);
+        }
+        else{
+            printf("Empate!");
+        }
+
+    }else if ((opcaoCarta1 = 4)&&(opcaoCarta2 = 4)){
+       
+        if( pontoTuristico0 > pontoTuristico1){
+            printf("Estado: %s venceu!", nomeCidade0);
+        }
+        else if (pontoTuristico0 < pontoTuristico1){
+            printf("Estado: %s venceu!", nomeCidade1);
+        }
+        else{
+            printf("Empate!");
+        }
+
+    }else if ((opcaoCarta1 = 5)&&(opcaoCarta2 = 5)){
+        
+        if( inverso_densidade0 < inverso_densidade1){
+            printf("Estado: %s venceu!", nomeCidade0);
+        }
+        else if (inverso_densidade0 > inverso_densidade1){
+            printf("Estado: %s venceu!", nomeCidade1);
+        }
+        else{
+            printf("Empate!");
+        }
+    }
     
     return 0;
 }
